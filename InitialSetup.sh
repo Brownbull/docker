@@ -9,8 +9,8 @@ $ docker run hello-world
 $ docker --version
 
 # Docker infrastucture
-Stack # defines interactions of all the Services
-  Swarm #
+Stack # Services running in a machine or Swarm for an app
+  Swarm # Cluster of machines that run Services
     Services # defines how Images behave in production
       Image # builded Container
         Container # contain app, code and dependencies
