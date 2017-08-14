@@ -33,9 +33,9 @@ $ docker-machine scp <inputfile.extension> myvm1:~ # ~ represents home directory
     # SWMTKN-1-2o2vco5saxq7c5lcw33bbbg0km0nev3gl9x6s7x5kr5v7xyy48-661lfd4zuxtt99fnxbiplgcd9
 
   # Add Worker to Swarm using docker swarm join token
-  $ docker-machine ssh myvm2 "docker swarm join \ --token <token> \ <ip>:<port>"
+  $ docker-machine ssh myvm2 "docker swarm join \--token <token> \<ip>:<port>"
     # replacing
-    # $ docker-machine ssh myvm2 "docker swarm join \ --token SWMTKN-1-2o2vco5saxq7c5lcw33bbbg0km0nev3gl9x6s7x5kr5v7xyy48-661lfd4zuxtt99fnxbiplgcd9 \ 192.168.99.101:2377
+    # $ docker-machine ssh myvm2 "docker swarm join \--token SWMTKN-1-2o2vco5saxq7c5lcw33bbbg0km0nev3gl9x6s7x5kr5v7xyy48-661lfd4zuxtt99fnxbiplgcd9 \192.168.99.101:2377"
 # Swarm Created
 
 # SSH shell on VMs
@@ -58,6 +58,8 @@ $ docker-machine ssh <VMname> "command" # echo, ps, cd, pwd, etc
   $ docker node ls
   # inspect a node in a Cluster
   $ docker node inspect <nodeID>
+  # Remove a node
+  $ docker node rm <nodeID>
   # Deploy an App on a Cluster
   $ docker stack deploy -c docker-compose.yml getstartedlab # http://192.168.99.101/ or http://192.168.99.102/
   # See running images on Cluster
