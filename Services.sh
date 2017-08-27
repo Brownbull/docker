@@ -11,7 +11,7 @@ $ docker stack deploy -c docker-compose.yml getstartedlab # Run the specified Co
   # http://192.168.99.100/
 
 # See Services in an app
-$ docker stack services <appname>       # List the services associated with an app
+$ docker stack services <appname> # List the services associated with an app
 
 # See containers relalted to a Service
 $ docker stack ps getstartedlab
