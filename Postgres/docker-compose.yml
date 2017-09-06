@@ -1,0 +1,12 @@
+dbdata:
+  image: brownbull/postgres1
+  volumes:
+    - /var/lib/postgresql
+  command: true
+
+db:
+  image: brownbull/postgres1
+  volumes_from:
+    - dbdata
+  ports:
+    - "5432:5432"
