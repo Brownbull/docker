@@ -11,6 +11,7 @@ $ docker build --rm=true -t brownbull/postgres1
 $ docker run -i -t -p 5432:5432 brownbull/postgres1
 
 # Graphic Interface
+# tips from https://stackoverflow.com/questions/25540711/docker-postgres-pgadmin-local-connection
 # install pgAdmin and restart device
 https://www.pgadmin.org/download/
 
