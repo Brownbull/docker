@@ -279,4 +279,9 @@ $ python manage.py createsuperusers
     user : brownbull
     pass : o92823...
 
+# Start development server
+$ python manage.py runserver
+# then go to 
+http://localhost:8000/admin
+
 
