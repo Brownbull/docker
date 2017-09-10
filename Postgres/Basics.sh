@@ -5,6 +5,7 @@ $ docker pull postgres
 https://github.com/andreagrandi/postgresql-docker/blob/master/Dockerfile
 
 # the build the image
+$ cd C:\Users\final\Desktop\Git\docker\Postgres
 $ docker build --rm=true -t brownbull/postgres1
 
 # run container
