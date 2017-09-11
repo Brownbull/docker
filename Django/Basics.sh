@@ -275,7 +275,7 @@ $ python manage.py shell
 
 # Django Admin
 # create admin
-$ python manage.py createsuperusers
+$ python manage.py createsuperuser
     user : brownbull
     pass : o92823...
 
@@ -437,5 +437,20 @@ polls/static/polls/style.css
 body {
     background: white url("images/background.gif") no-repeat right bottom;
 }
+
+# ADMIN operations
+# modify admin file
+polls/admin.py
+from django.contrib import admin
+
+from .models import Question
+
+
+class QuestionAdmin(admin.ModelAdmin):
+    fields = ['pub_date', 'question_text']
+
+admin.site.register(Question, QuestionAdmin)
+
+
 
 

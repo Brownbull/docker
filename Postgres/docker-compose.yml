@@ -1,12 +1,25 @@
-dbdata:
-  image: brownbull/postgres1
-  volumes:
-    - /var/lib/postgresql
-  command: true
+version: '3'
 
-db:
-  image: brownbull/postgres1
-  volumes_from:
-    - dbdata
-  ports:
-    - "5432:5432"
+services:
+  db:
+    image: brownbull/postgres1
+    volumes:
+      - "db-data:/var/lib/postgresql/data"
+    ports:
+      - "5432:5432"
+    restart: always
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data:/data
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks:
+      - webnet
+networks:
+  webnet:
+volumes:
+  db-data:

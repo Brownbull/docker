@@ -20,7 +20,7 @@ USER postgres
 
 RUN /etc/init.d/postgresql start \
     && psql --command "CREATE USER brownbull WITH SUPERUSER PASSWORD '928236543';" \
-    && createdb -O brownbull pgdb
+    && createdb -O brownbull mysite
 
 USER root
 
