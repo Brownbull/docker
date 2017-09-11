@@ -393,3 +393,49 @@ class ResultsView(generic.DetailView):
 def vote(request, question_id):
     ... # same as above, no changes needed.
 # Introduce new views based on Django’s generic views.
+polls/views.pyfrom django.shortcuts import render, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
+from django.http import Http404
+from django.urls import reverse
+from django.views import generic
+from django.utils import timezone
+# with loader
+#from django.template import loader
+
+from .models import Question, Choice
+
+class IndexView(generic.ListView):
+    template_name = 'polls/index.html'
+    context_object_name = 'latest_question_list'
+    def get_queryset(self):
+        # Return the last five published questions
+        return Question.objects.filter(
+            pub_date__lte=timezone.now()
+        ).order_by('-pub_date')[:5]
+
+class DetailView(generic.DetailView):
+    model = Question
+    template_name = 'polls/detail.html'
+
+class ResultsView(generic.DetailView):
+    model = Question
+    template_name = 'polls/results.html'
+
+# Using CSS, Stylesheet, Javascript - Static Files
+# create a folder where to store all your static things
+polls/static/polls/style.css
+li a {
+    color: green;
+}
+# Then you case use it as follows in templates
+polls/templates/polls/index.html
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}" />
+
+# Adding an image
+polls/static/polls/style.css
+body {
+    background: white url("images/background.gif") no-repeat right bottom;
+}
+
+
